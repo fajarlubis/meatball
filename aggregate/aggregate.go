@@ -1,4 +1,4 @@
-package aggr
+package aggregate
 
 type Aggregator interface {
 }
