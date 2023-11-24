@@ -1,5 +1,5 @@
 server:
-	go run main.go
+	go run core/main.go
 
 build-cli:
 	go build -o bin/meatball cli/main.go
