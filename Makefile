@@ -16,4 +16,10 @@ dropdb:
 postgres:
 	docker run --name meatball-db -p 1302:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=meatball -d postgres:16-alpine
 
-.PHONY: server build-cli postgres createdb
+test:
+	go test -v ./...
+
+migrateup:
+	migrate -path db/migration -database "postgresql://root:meatball@localhost:1302/meatball?sslmode=disable" -verbose up
+
+.PHONY: server build-cli postgres createdb test
