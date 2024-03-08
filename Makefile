@@ -1,5 +1,5 @@
-server:
-	go run core/main.go
+http:
+	go run main.go
 
 build-cli:
 	go build -o bin/meatball cli/main.go
@@ -22,4 +22,4 @@ test:
 migrateup:
 	migrate -path db/migration -database "postgresql://root:meatball@localhost:1302/meatball?sslmode=disable" -verbose up
 
-.PHONY: server build-cli postgres createdb test
+.PHONY: http build-cli postgres createdb test
